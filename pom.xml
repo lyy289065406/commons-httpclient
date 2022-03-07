@@ -26,7 +26,7 @@
 
     <groupId>com.exp-blog</groupId>
     <artifactId>commons-httpclient</artifactId>
-    <version>3.2-alpha</version>
+    <version>3.2-alpha-SNAPSHOT</version>
 
     <properties>
         <java.version>1.8</java.version>
