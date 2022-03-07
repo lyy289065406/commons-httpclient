@@ -248,8 +248,14 @@ public class ChunkedInputStream extends InputStream {
         int state = 0; 
         while (state != -1) {
         int b = in.read();
-            if (b == -1) { 
-                throw new IOException("chunked stream ended unexpectedly");
+            if (b == -1) {
+                /**
+                 * 修改方法：不抛出异常
+                 * author by EXP
+                 */
+                System.err.println("chunked stream ended unexpectedly");
+                return 0;
+//                throw new IOException("chunked stream ended unexpectedly");
             }
             switch (state) {
                 case 0: 

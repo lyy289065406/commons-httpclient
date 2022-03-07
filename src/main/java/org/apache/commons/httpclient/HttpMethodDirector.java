@@ -135,11 +135,29 @@ class HttpMethodDirector {
                 method.addRequestHeader((Header)i.next());
             }
         }
-        
+
+        /**
+         * 修改方法: 用于修正 commons-httpclient 自动重定向页面后导致响应 cookies 丢失问题
+         *
+         * 记录本次访问的 URL（若发页面生重定向）所返回的所有可能响应 cookie
+         * author by EXP
+         */
+        Set<Header> responseCookies = new HashSet<Header>();
         try {
             int maxRedirects = this.params.getIntParameter(HttpClientParams.MAX_REDIRECTS, 100);
 
             for (int redirectCount = 0;;) {
+
+                /**
+                 * 备份当前页面响应头中返回的 cookies
+                 * author by EXP
+                 */
+                Header[] headers = method.getResponseHeaders();
+                for(Header header : headers) {
+                    if("Set-Cookie".equalsIgnoreCase(header.getName())) {
+                        responseCookies.add(header);
+                    }
+                }
 
                 // make sure the connection we have is appropriate
                 if (this.conn != null && !hostConfiguration.hostEquals(this.conn)) {
@@ -220,6 +238,14 @@ class HttpMethodDirector {
                 && this.conn != null
             ) {
                 this.conn.releaseConnection();
+            }
+
+            /**
+             * 把所有重定向页面的响应cookie追加到最后一个页面的响应头中
+             * author by EXP
+             */
+            for(Header cookie : responseCookies) {
+                method.addResponseHeader(cookie);
             }
         }
 

@@ -19,9 +19,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:https://github.com/lyy289065406/exp-libs-refactor.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:lyy289065406/exp-libs-refactor.git</developerConnection>
-        <url>https://github.com/lyy289065406/exp-libs-refactor</url>
+        <connection>scm:git:https://github.com/lyy289065406/commons-httpclient.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:lyy289065406/commons-httpclient.git</developerConnection>
+        <url>https://github.com/lyy289065406/commons-httpclient</url>
     </scm>
 
     <groupId>com.exp-blog</groupId>
