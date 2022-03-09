@@ -24,9 +24,13 @@
         <url>https://github.com/lyy289065406/commons-httpclient</url>
     </scm>
 
+    <name>commons-httpclient</name>
+    <description>The HttpClient component supports the client-side of RFC 1945 (HTTP/1.0) and RFC 2616 (HTTP/1.1) , several related specifications (RFC 2109 (Cookies) , RFC 2617 (HTTP Authentication) , etc.), and provides a framework by which new request types (methods) or HTTP extensions can be created easily.</description>
+    <url>https://github.com/lyy289065406/commons-httpclient</url>
+
     <groupId>com.exp-blog</groupId>
     <artifactId>commons-httpclient</artifactId>
-    <version>3.2-alpha-SNAPSHOT</version>
+    <version>3.2-alpha</version>
 
     <properties>
         <java.version>1.8</java.version>

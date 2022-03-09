@@ -26,7 +26,7 @@ maven 的 `settings.yml` 配置 sonatype 中央仓库：
 <dependency>
   <groupId>com.exp-blog</groupId>
   <artifactId>commons-httpclient</artifactId>
-  <version>3.2-alpha-SNAPSHOT</version>
+  <version>3.2-alpha</version>
 </dependency>
 ```
 
